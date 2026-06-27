@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mindset Cognitive Experience — MCE</title>
+    <style>
+        /* ---------- RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #0b0b0b;
+            color: #d4c9a8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        /* ---------- COULEURS ---------- */
+        .or {
+            color: #d4af37;
+        }
+        .blanc {
+            color: #ffffff;
+        }
+
+        /* ---------- TYPOGRAPHIE ---------- */
+        h1 {
+            font-size: 3.2rem;
+            color: #d4af37;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d4af37;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+            display: inline-block;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #d4af37;
+            font-weight: 400;
+            margin: 32px 0 16px 0;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #d4c9a8;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        ul li {
+            padding: 6px 0;
+            font-size: 1.1rem;
+            color: #d4c9a8;
+        }
+
+        /* ---------- CHIFFRES EN ARIAL ---------- */
+        .chiffre,
+        .prix,
+        .date,
+        .duree,
+        .telephone,
+        .numero {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- MENU FIXE ---------- */
+        .menu-fixe {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #0b0b0b;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+            padding: 14px 0;
+            margin-bottom: 40px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .menu a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4c9a8;
+            text-decoration: none;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+
+        .menu a.active {
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+
+        /* ---------- SECTIONS ---------- */
+        section {
+            padding: 50px 0 40px 0;
+            border-bottom: 1px solid #2a2a2a;
+            scroll-margin-top: 80px;
+            position: relative;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* ---------- BANNIERE DISTINCTIVE POUR TITRES ---------- */
+        .section-titre {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        .section-titre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #d4af37;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .section-titre.visible::before {
+            opacity: 1;
+        }
+
+        .section-titre h2 {
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+
+        /* ---------- LOGO ---------- */
+        .logo-block {
+            text-align: center;
+            padding: 20px 0 10px 0;
+        }
+
+        .logo-block .logo-carre {
+            display: inline-block;
+            border: 3px solid #d4af37;
+            padding: 20px 40px;
+            background-color: #0b0b0b;
+            min-width: 200px;
+        }
+
+        .logo-block .logo-carre .mce {
+            font-size: 3.6rem;
+            color: #d4af37;
+            letter-spacing: 6px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .logo-block .logo-carre .separateur {
+            width: 60px;
+            height: 2px;
+            background-color: #d4af37;
+            margin: 6px auto 8px auto;
+        }
+
+        .logo-block .logo-carre .sous-titre {
+            font-size: 0.9rem;
+            color: #d4c9a8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .logo-block .tagline {
+            font-size: 1.2rem;
+            color: #d4af37;
+            letter-spacing: 3px;
+            margin-top: 12px;
+            font-weight: 400;
+        }
+
+        .logo-block .accroche {
+            font-size: 1.3rem;
+            color: #d4c9a8;
+            letter-spacing: 2px;
+            margin-top: 8px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* ---------- GRILLE OFFRES ---------- */
+        .grille-offres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        .carte-offre {
+            background-color: #141414;
+            padding: 22px 20px;
+            border-left: 4px solid #d4af37;
+            border-radius: 4px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carte-offre .intitule {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .carte-offre .detail {
+            font-size: 0.95rem;
+            color: #a89870;
+            margin: 4px 0;
+        }
+
+        .carte-offre .prix {
+            font-size: 1.8rem;
+            color: #d4af37;
+            font-weight: 700;
+            margin: 12px 0 4px 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .carte-offre .detail .chiffre {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ---------- BANNIERE SEPARATION ---------- */
+        .banniere-sep {
+            text-align: center;
+            padding: 16px 0;
+            margin: 32px 0 20px 0;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .banniere-sep span {
+            font-size: 1.3rem;
+            color: #d4af37;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* ---------- PRESENTATION ANIMATEUR ---------- */
+        .grille-animateur {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 16px 0 24px 0;
+        }
+
+        .col-animateur {
+            background-color: #141414;
+            padding: 22px 24px;
+            border-left: 4px solid #d4af37;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .col-animateur h3 {
+            text-align: center;
+            margin-top: 0;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 8px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .col-animateur ul {
+            text-align: left;
+        }
+
+        .col-animateur ul li {
+            padding: 6px 0;
+            border-bottom: 1px solid #1f1f1f;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .col-animateur ul li:last-child {
+            border-bottom: none;
+        }
+
+        .col-animateur ul li .chiffre {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ---------- CITATION ---------- */
+        .citation {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #d4c9a8;
+            padding: 28px 30px;
+            background-color: #141414;
+            border-left: 6px solid #d4af37;
+            border-radius: 4px;
+            margin-top: 16px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .citation p {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .citation p:last-child {
+            margin-bottom: 0;
+        }
+
+        .citation .auteur {
+            display: block;
+            margin-top: 16px;
+            font-style: normal;
+            font-weight: 700;
+            color: #d4af37;
+            text-align: left;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact-ligne {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 40px;
+            font-size: 1.1rem;
+            padding: 8px 0;
+        }
+
+        .contact-ligne strong {
+            color: #d4af37;
+            font-weight: 400;
+        }
+
+        .contact-ligne .telephone {
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            padding: 30px 0 20px 0;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7a6f55;
+        }
+
+        .footer .qr-code {
+            margin-top: 16px;
+            display: inline-block;
+        }
+
+        .footer .qr-code img {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #d4af37;
+            border-radius: 4px;
+            padding: 4px;
+            background-color: #0b0b0b;
+        }
+
+        .footer .qr-code .legende {
+            font-size: 0.7rem;
+            color: #7a6f55;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- SOUS-SECTION GAIN ---------- */
+        .sous-section-gain {
+            margin-top: 24px;
+            padding: 20px 24px;
+            background-color: #141414;
+            border-left: 4px solid #d4af37;
+            border-radius: 4px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .sous-section-gain h4 {
+            color: #d4af37;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sous-section-gain ul {
+            list-style: disc;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .sous-section-gain ul li {
+            padding: 5px 0;
+            font-size: 1rem;
+            color: #d4c9a8;
+            text-align: left;
+        }
+
+        /* ---------- NEW VISION SECTIONS ---------- */
+        .newvision-detail {
+            max-width: 800px;
+            margin: 12px auto 0 auto;
+            text-align: center;
+        }
+
+        .newvision-detail p {
+            margin-bottom: 8px;
+        }
+
+        .newvision-detail .highlight {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .newvision-detail .highlight-supports {
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* ---------- PHASES NEW VISION ---------- */
+        .phases-list {
+            max-width: 800px;
+            margin: 16px auto 0 auto;
+            text-align: center;
+        }
+
+        .phases-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .phases-list ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #1f1f1f;
+            font-size: 1.05rem;
+        }
+
+        .phases-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .phases-list .highlight {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .phases-list ul li .chiffre {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ---------- CESSION DISCIPLINES ---------- */
+        .grille-disciplines {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            max-width: 900px;
+            margin: 20px auto 0 auto;
+        }
+
+        .discipline {
+            background-color: transparent;
+            padding: 10px 8px;
+            border: 1px solid #d4af37;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .discipline .nom {
+            font-weight: 700;
+            color: #d4af37;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .discipline .desc {
+            font-size: 0.78rem;
+            color: #ffffff;
+            margin-top: 2px;
+            line-height: 1.2;
+            font-style: italic;
+        }
+
+        .discipline:hover {
+            background-color: #141414;
+            border-color: #c9a84c;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            .grille-disciplines {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            h2 {
+                font-size: 1.7rem;
+            }
+            .menu {
+                gap: 6px 14px;
+            }
+            .menu a {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+            .container {
+                padding: 12px 16px;
+            }
+            .grille-offres {
+                grid-template-columns: 1fr;
+            }
+            .grille-animateur {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .grille-disciplines {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .logo-block .logo-carre {
+                padding: 14px 20px;
+                min-width: 150px;
+            }
+            .logo-block .logo-carre .mce {
+                font-size: 2.6rem;
+                letter-spacing: 4px;
+            }
+            .logo-block .logo-carre .sous-titre {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+            .logo-block .tagline {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+            .logo-block .accroche {
+                font-size: 1.1rem;
+            }
+            .citation {
+                font-size: 1rem;
+                padding: 18px;
+            }
+            .contact-ligne {
+                flex-direction: column;
+                gap: 4px;
+                align-items: center;
+            }
+            .banniere-sep span {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+            .sous-section-gain {
+                padding: 16px;
+            }
+            .col-animateur {
+                text-align: left;
+            }
+            .col-animateur ul {
+                text-align: left;
+            }
+            .col-animateur ul li {
+                text-align: left;
+            }
+            .phases-list ul li {
+                font-size: 0.95rem;
+                padding: 6px 0;
+            }
+            .discipline {
+                padding: 8px 6px;
+                min-height: 60px;
+            }
+            .discipline .nom {
+                font-size: 0.85rem;
+            }
+            .discipline .desc {
+                font-size: 0.7rem;
+            }
+            .footer .qr-code img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .menu a {
+                font-size: 0.65rem;
+                letter-spacing: 0.5px;
+                padding: 4px 0;
+            }
+            .menu {
+                gap: 4px 10px;
+            }
+            .logo-block .logo-carre .mce {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            .carte-offre {
+                padding: 16px;
+            }
+            .carte-offre .prix {
+                font-size: 1.4rem;
+            }
+            .col-animateur {
+                padding: 16px;
+            }
+            .citation {
+                font-size: 0.95rem;
+                padding: 14px;
+            }
+            .grille-disciplines {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .discipline {
+                padding: 8px 12px;
+                min-height: 50px;
+            }
+            .sous-section-gain ul {
+                padding-left: 20px;
+            }
+            .footer .qr-code img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- HEADER / LOGO + ACCUEIL -->
+        <!-- ============================================================ -->
+        <header id="accueil" class="logo-block">
+            <div class="logo-carre">
+                <div class="mce">MCE</div>
+                <div class="separateur"></div>
+                <div class="sous-titre">Mindset Cognitive Experience</div>
+            </div>
+            <div class="tagline">Comprendre, Visualiser, Avancer</div>
+            <div class="accroche">Développez Vos Connaissances ... Révélez vos Compétences</div>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- MENU FIXE -->
+        <!-- ============================================================ -->
+        <div class="menu-fixe">
+            <nav class="menu" id="mainMenu">
+                <a href="#accueil" data-label="Accueil">Accueil</a>
+                <a href="#concept" data-label="Présentation du Concept">Présentation du Concept</a>
+                <a href="#newvision" data-label="La formation New Vision">La formation New Vision</a>
+                <a href="#businessimpact" data-label="Business Impact">Business Impact</a>
+                <a href="#gains" data-label="Vos Bénéfices">Vos Bénéfices</a>
+                <a href="#offres" data-label="Offres">Offres</a>
+                <a href="#animateur" data-label="L'Animateur">L'Animateur</a>
+                <a href="#contact" data-label="Contact">Contact</a>
+            </nav>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PRÉSENTATION DU CONCEPT -->
+        <!-- ============================================================ -->
+        <section id="concept">
+            <div class="section-titre" id="concept-titre">
+                <h2>Présentation du Concept</h2>
+            </div>
+
+            <p style="font-size: 1.2rem; max-width: 900px;">
+                <span class="or">Mindset Cognitive Experience</span> s'inscrit dans une logique de transfert de compétences et de capitalisation cognitive. Elle part de l'individu pour structurer une capacité durable. Elle ne transfère pas une solution, elle transfère un cadre de lecture. C'est un levier d'acculturation, une sorte de boosteur permanent au self Empowerment.
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- LA FORMATION NEW VISION -->
+        <!-- ============================================================ -->
+        <section id="newvision">
+            <div class="section-titre" id="newvision-titre">
+                <h2>La formation New Vision</h2>
+            </div>
+
+            <p style="font-size: 1.2rem; max-width: 900px;">
+                Une formation exclusive de <span class="chiffre">50h</span> pour l'entreprenariat, 100% pratique, 100% adaptée. Elle s'articule autour d'une approche cognitive qui vise à développer les connaissances pour révéler les Compétences.
+            </p>
+
+            <!-- Phases -->
+            <div class="phases-list">
+                <p style="font-size: 1.15rem; margin-top: 20px; font-weight: 400; color: #d4af37;">
+                    Une approche en <span class="chiffre">4</span> phases :
+                </p>
+                <ul>
+                    <li><span class="chiffre">1.</span> Explication — Comprendre l'écosystème et les enjeux</li>
+                    <li><span class="chiffre">2.</span> Principes et fondamentaux — Assimiler les Bases</li>
+                    <li><span class="chiffre">3.</span> De la théorie à la pratique — Cas précis et Simulations</li>
+                    <li><span class="chiffre">4.</span> Apport de l'IA — Ce que l'avènement de l'IA change dans la</li>
+                </ul>
+                <p style="font-size: 1.1rem; margin-top: 20px; color: #d4af37; font-style: italic;">
+                    Une formation qui vise à vous faire adopter un Mindset d'Entrepreneur.
+                </p>
+            </div>
+
+            <div class="newvision-detail">
+                <p style="margin-top: 24px; font-size: 1.1rem;">
+                    <span class="highlight">Catering ALLINCLUSIVE Premium</span>
+                </p>
+                <p style="font-size: 1.1rem;">
+                    <span class="highlight-supports">Des supports de qualité</span>
+                </p>
+            </div>
+
+            <!-- Cession Disciplines -->
+            <div style="margin-top: 32px; text-align: center;">
+                <h3 style="font-size: 1.3rem; color: #d4af37; border-bottom: none; margin-bottom: 12px;">Cession Disciplines</h3>
+                <div class="grille-disciplines">
+                    <div class="discipline">
+                        <div class="nom">Marketing</div>
+                        <div class="desc">Maîtrisez les leviers d'acquisition et de notoriété</div>
+                    </div>
+                    <div class="discipline">
+                        <div class="nom">Banking</div>
+                        <div class="desc">Comprenez les rouages financiers et bancaires</div>
+                    </div>
+                    <div class="discipline">
+                        <div class="nom">Outils IA</div>
+                        <div class="desc">Intégrez l'IA comme levier opérationnel</div>
+                    </div>
+                    <div class="discipline">
+                        <div class="nom">Management</div>
+                        <div class="desc">Pilotez équipes et processus pour des résultats durables</div>
+                    </div>
+                    <div class="discipline">
+                        <div class="nom">Entreprenariat</div>
+                        <div class="desc">Développez une vision stratégique et opérationnelle</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz -->
+            <div style="margin-top: 32px; padding: 20px 24px; background-color: #141414; border-left: 4px solid #d4af37; border-radius: 4px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+                <h3 style="font-size: 1.3rem; margin: 0 0 8px 0; color: #d4af37; border-bottom: none;">Quiz</h3>
+                <p style="font-size: 1.05rem;">
+                    Participez chaque jour à un quiz sur un thème différent de la vie d'une entreprise.<br />
+                    Montrez que vous êtes fait pour diriger.<br />
+                    À la fin de la session, le gagnant des quizs se verra attribuer un prix.
+                </p>
+            </div>
+
+            <!-- Just In Three -->
+            <div style="margin-top: 24px; padding: 20px 24px; background-color: #141414; border-left: 4px solid #d4af37; border-radius: 4px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+                <h3 style="font-size: 1.3rem; margin: 0 0 8px 0; color: #d4af37; border-bottom: none;">Just In Three</h3>
+                <p style="font-size: 1.05rem;">
+                    Un jeu de rôle immersif et collaboratif.<br />
+                    Compétition, Stratégie, Psychologie sont vos seuls atouts.<br />
+                    Faites gagner votre équipe et accédez au conseil. Le grand gagnant remporte le gros lot.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- BUSINESS IMPACT -->
+        <!-- ============================================================ -->
+        <section id="businessimpact">
+            <div class="section-titre" id="businessimpact-titre">
+                <h2>Business Impact</h2>
+            </div>
+
+            <p style="font-size: 1.2rem; max-width: 900px;">
+                Une nouvelle façon de coacher les entrepreneurs du small business.
+            </p>
+            <p style="font-size: 1.2rem; max-width: 900px; margin-top: 16px;">
+                Une approche en <span class="chiffre">3</span> phases :
+            </p>
+
+            <ul style="max-width: 900px; margin: 12px auto 0 auto;">
+                <li><span class="chiffre">1.</span> Exploration — Comprendre l'écosystème et les enjeux</li>
+                <li><span class="chiffre">2.</span> Diagnostique Opérationnel et Cognitif — Analyser les forces et les gaps</li>
+                <li><span class="chiffre">3.</span> Plan d'Action et Plan de Développement — Déployer la stratégie gagnante</li>
+            </ul>
+
+            <p style="font-size: 1.1rem; max-width: 900px; margin-top: 24px; color: #a89870;">
+                Un coaching terrain, structuré, pour une performance rapide et durable.
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- VOS BÉNÉFICES -->
+        <!-- ============================================================ -->
+        <section id="gains">
+            <div class="section-titre" id="gains-titre">
+                <h2>Vos Bénéfices</h2>
+            </div>
+
+            <!-- Sous-section Formation New Vision -->
+            <div class="sous-section-gain">
+                <h4>Formation New Vision</h4>
+                <ul>
+                    <li>Booster Culture Générale Business</li>
+                    <li>Élargir votre Vision des opportunités</li>
+                    <li>Maîtriser à <span class="chiffre">100%</span> la Création de Projet</li>
+                    <li>Accroître votre Self Confiance</li>
+                    <li>Adopter définitivement et efficacement l'IA</li>
+                </ul>
+            </div>
+
+            <!-- Sous-section Coaching Business Impact -->
+            <div class="sous-section-gain">
+                <h4>Coaching Business Impact</h4>
+                <ul>
+                    <li>Une vision <span class="chiffre">360°</span> de votre projet</li>
+                    <li>Un diagnostic opérationnel précis pour avancer sereinement</li>
+                    <li>Un pas dans l'intégration de l'IA dans votre Business</li>
+                    <li>Un diagnostic Cognitif Entrepreneurial structuré</li>
+                    <li>Un plan de développement calibré</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- OFFRES -->
+        <!-- ============================================================ -->
+        <section id="offres">
+            <div class="section-titre" id="offres-titre">
+                <h2>Offres</h2>
+            </div>
+
+            <h3>Formation — New Vision</h3>
+            <div class="grille-offres">
+
+                <div class="carte-offre">
+                    <div class="intitule">New Vision</div>
+                    <div class="detail"><span class="chiffre">50</span> heures — <span class="chiffre">6</span> jours successifs</div>
+                    <div class="detail">À partir du <span class="chiffre">15</span> Juillet</div>
+                    <div class="prix"><span class="chiffre">490</span> d</div>
+                </div>
+
+                <div class="carte-offre">
+                    <div class="intitule">New Vision Week end</div>
+                    <div class="detail"><span class="chiffre">50</span> heures — <span class="chiffre">3</span> week-ends</div>
+                    <div class="detail"><span class="chiffre">11/12</span> · <span class="chiffre">25/26</span> · <span class="chiffre">01/02</span></div>
+                    <div class="prix"><span class="chiffre">590</span> d</div>
+                </div>
+
+                <div class="carte-offre">
+                    <div class="intitule">New Vision En Ligne</div>
+                    <div class="detail"><span class="chiffre">30</span> heures — <span class="chiffre">10</span> séances de <span class="chiffre">3</span>h</div>
+                    <div class="detail">À partir du <span class="chiffre">13</span> Juillet</div>
+                    <div class="prix"><span class="chiffre">290</span> d</div>
+                </div>
+
+            </div>
+
+            <!-- BANNIERE DE SEPARATION -->
+            <div class="banniere-sep">
+                <span>✦ ✦ ✦</span>
+            </div>
+
+            <h3>Coaching Commercial — Business Impact</h3>
+            <div class="grille-offres">
+
+                <div class="carte-offre">
+                    <div class="intitule">Business Impact</div>
+                    <div class="detail">Performance rapide et durable</div>
+                    <div class="detail"><span class="chiffre">3</span> séances de <span class="chiffre">3</span>h</div>
+                    <div class="prix"><span class="chiffre">390</span> d</div>
+                </div>
+
+                <div class="carte-offre">
+                    <div class="intitule">Business Impact Premium</div>
+                    <div class="detail">Accompagnement d'<span class="chiffre">1</span> mois</div>
+                    <div class="detail"><span class="chiffre">30</span> heures</div>
+                    <div class="prix"><span class="chiffre">790</span> d</div>
+                </div>
+
+            </div>
+
+            <p style="margin-top: 32px; font-size: 0.95rem; color: #7a6f55; text-align: center;">
+                * Tarifs en dinars tunisiens (TND). Sessions en présentiel ou en ligne selon formule.
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- L'ANIMATEUR -->
+        <!-- ============================================================ -->
+        <section id="animateur">
+            <div class="section-titre" id="animateur-titre">
+                <h2>L'Animateur</h2>
+            </div>
+
+            <div class="grille-animateur">
+
+                <div class="col-animateur">
+                    <h3>Expérience</h3>
+                    <ul>
+                        <li><span class="chiffre">2004 – 2006</span> · Communication et Publicité</li>
+                        <li><span class="chiffre">2006 – 2016</span> · Entreprenariat — Agro-alimentaire</li>
+                        <li><span class="chiffre">2015 – 2025</span> · Corporate Banking</li>
+                    </ul>
+                </div>
+
+                <div class="col-animateur">
+                    <h3>Diplômes</h3>
+                    <ul>
+                        <li>Maîtrise Marketing — ISG</li>
+                        <li>DESS Distribution Moderne et Négociation — ESC</li>
+                        <li>ITB — Management bancaire — Major de promotion</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="citation">
+                <p>Je suis intimement persuadé que l'IA est un révélateur de talents, et notamment dans l'entreprenariat.</p>
+                <p>Après plus de <span class="chiffre">20</span> ans à côtoyer des entrepreneurs, souvent le manque de connaissance technique, administrative ou marketing précipite un business sain dans une spirale sans fin.</p>
+                <p>Mon approche est de remédier à ce GAP cognitif par une formation dédiée ou par un coaching personnalisé qui vise à booster le business mais aussi l'entrepreneur.</p>
+                <span class="auteur">Tarek el Fatmi — Fondateur du protocole "New Vision"</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CONTACT -->
+        <!-- ============================================================ -->
+        <section id="contact">
+            <div class="section-titre" id="contact-titre">
+                <h2>Contact</h2>
+            </div>
+
+            <div class="contact-ligne">
+                <span><strong>Email</strong> tarekfatmi98@gmail.com</span>
+                <span><strong>Téléphone</strong> <span class="telephone">+216 93 399 107</span></span>
+                <span><strong>Adresse</strong> Tunis — Tunisie</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- FOOTER -->
+        <!-- ============================================================ -->
+        <footer class="footer">
+            <p>Mindset Cognitive Experience — MCE</p>
+            <p style="margin-top: 4px; font-size: 0.8rem; color: #5a4f3a;">
+                Comprendre, Visualiser, Avancer
+            </p>
+            <p style="margin-top: 8px; font-size: 0.75rem; color: #5a4f3a;">
+                Tous droits réservés <span class="chiffre">2026</span>
+            </p>
+
+            <!-- QR Code -->
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tarekfatmi.github.io/MCE/" alt="QR Code MCE" />
+                <div class="legende">Scannez pour accéder au site</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- JAVASCRIPT — MENU ACTIF + BANNIERE TITRES -->
+    <!-- ============================================================ -->
+    <script>
+        // ---------- MENU ACTIF ----------
+        const menuLinks = document.querySelectorAll('#mainMenu a');
+        const sections = document.querySelectorAll('section');
+
+        function updateActiveMenu() {
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ---------- BANNIERE DISTINCTIVE POUR TITRES ----------
+        function updateTitreBanner() {
+            const titres = document.querySelectorAll('.section-titre');
+            titres.forEach(titre => {
+                const rect = titre.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 50) {
+                    titre.classList.add('visible');
+                } else {
+                    titre.classList.remove('visible');
+                }
+            });
+        }
+
+        function updateAll() {
+            updateActiveMenu();
+            updateTitreBanner();
+        }
+
+        window.addEventListener('scroll', updateAll);
+        window.addEventListener('resize', updateAll);
+        updateAll();
+    </script>
+
+</body>
+</html>
